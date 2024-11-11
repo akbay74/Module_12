@@ -19,23 +19,20 @@ class TournamentTest(TestCase):
             for key, value in t_value.items():
                 print(f'{key}: {value.name}')
 
-    def test_turn1(self):
-        turn_1 = Tournament(90, self.run1, self.run3)
-        result = turn_1.start()
+    def test_round1(self):
+        round_1 = Tournament(90, self.run1, self.run3)
+        result = round_1.start()
         self.assertTrue(result[list(result.keys())[-1]] == 'Ник')
         self.all_results['Первый раунд'] = result
 
-    def test_turn2(self):
-        turn_2 = Tournament(90, self.run2, self.run3)
-        result = turn_2.start()
+    def test_round2(self):
+        round_2 = Tournament(90, self.run2, self.run3)
+        result = round_2.start()
         self.assertTrue(result[list(result.keys())[-1]] == 'Ник')
         self.all_results['Второй раунд'] = result
 
-    def test_turn3(self):
-        turn_3 = Tournament(90, self.run1, self.run2, self.run3)
-        result = turn_3.start()
+    def test_round3(self):
+        round_3 = Tournament(90, self.run1, self.run2, self.run3)
+        result = round_3.start()
         self.assertTrue(result[list(result.keys())[-1]] == 'Ник')
         self.all_results['Третий раунд'] = result
-
-if __name__ == '__main__':
-    unittest.main()
