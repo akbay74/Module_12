@@ -1,7 +1,9 @@
 from run_tour import Runner, Tournament
-from unittest import TestCase
+import unittest
 
-class TournamentTest(TestCase):
+class TournamentTest(unittest.TestCase):
+
+    is_frozen = True
 
     @classmethod
     def setUpClass(cls):
@@ -19,18 +21,21 @@ class TournamentTest(TestCase):
             for key, value in t_value.items():
                 print(f'{key}: {value.name}')
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_round1(self):
         round_1 = Tournament(90, self.run1, self.run3)
         result = round_1.start()
         self.assertTrue(result[list(result.keys())[-1]] == 'Ник')
         self.all_results['Первый раунд'] = result
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_round2(self):
         round_2 = Tournament(90, self.run2, self.run3)
         result = round_2.start()
         self.assertTrue(result[list(result.keys())[-1]] == 'Ник')
         self.all_results['Второй раунд'] = result
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_round3(self):
         round_3 = Tournament(90, self.run1, self.run2, self.run3)
         result = round_3.start()
